@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
+import {SmartTableData} from '../../../@core/data/smart-table';
 import {NewsService} from "../../extra-components/services/news.service";
 import {HomeService} from "../services/home.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-home-inner',
@@ -62,7 +63,7 @@ export class HomeInnerComponent implements OnInit{
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData, private homeService: HomeService) {
+  constructor(private service: SmartTableData, private homeService: HomeService, private router: Router) {
     const data = this.service.getData();
     this.source.load(data);
   }
@@ -77,7 +78,6 @@ export class HomeInnerComponent implements OnInit{
 
   onKeydown(event) {
     if (event.key === "Enter" && event.currentTarget.value) {
-      debugger
       this.homeService.loadByQuery(event.currentTarget.value);
     }
   }
@@ -100,7 +100,6 @@ export class HomeInnerComponent implements OnInit{
   loadData() {
     this.homeService.load()
       .subscribe(nextNews => {
-        debugger
         this.firstCard.placeholders = [];
         this.firstCard.news.push(...nextNews);
         this.firstCard.loading = false;
@@ -110,5 +109,9 @@ export class HomeInnerComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadData();
+  }
+
+  navigateToPost(post: any) {
+    this.router.navigateByUrl(`pages/forms/post?id=${post.id}`);
   }
 }

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {UpgradesInnerComponent} from "./smart-table/upgrades-inner.component";
+import {UpgradesInnerComponent} from "./inner/upgrades-inner.component";
 import {UpgradesComponent} from "./upgrades.component";
 
 const routes: Routes = [{
   path: '',
   component: UpgradesInnerComponent,
   children: [{
-    path: 'smart-table',
+    path: 'inner',
     component: UpgradesComponent,
   }],
 }];

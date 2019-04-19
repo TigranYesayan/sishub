@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {Component} from '@angular/core';
+import {LocalDataSource} from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
+import {SmartTableData} from '../../../@core/data/smart-table';
+import {NewsService} from "../../extra-components/services/news.service";
+import {Router} from "@angular/router";
+import {HomeService} from "../../home/services/home.service";
 
 @Component({
-  selector: 'ngx-upgrades-inner',
+  selector: 'upgrade-component',
+  styleUrls: ['upgrades-inner.component.scss'],
   templateUrl: './upgrades-inner.component.html',
   styles: [`
     nb-card {
@@ -59,7 +63,7 @@ export class UpgradesInnerComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
+  constructor(private service: SmartTableData, private homeService: HomeService, private router: Router) {
     const data = this.service.getData();
     this.source.load(data);
   }
@@ -70,5 +74,46 @@ export class UpgradesInnerComponent {
     } else {
       event.confirm.reject();
     }
+  }
+
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      alert(event);
+    }
+  }
+
+  firstCard = {
+    news: [],
+    placeholders: [],
+    loading: false,
+    pageToLoadNext: 1,
+  };
+  secondCard = {
+    news: [],
+    placeholders: [],
+    loading: false,
+    pageToLoadNext: 1,
+  };
+  pageSize = 10;
+
+
+  loadNext(cardData) {
+    if (cardData.loading) {
+      return;
+    }
+
+    cardData.loading = true;
+    cardData.placeholders = new Array(this.pageSize);
+    this.homeService.load(cardData.pageToLoadNext, this.pageSize)
+      .subscribe(nextNews => {
+        cardData.placeholders = [];
+        cardData.news.push(...nextNews);
+        cardData.loading = false;
+        cardData.pageToLoadNext++;
+      });
+  }
+
+  navigateToPost(post: any) {
+    this.router.navigateByUrl(`pages/forms/post?id=${post.id}`);
   }
 }

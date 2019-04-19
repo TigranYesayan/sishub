@@ -35,9 +35,15 @@ export class AnswerQuestionComponent implements OnInit {
       });
   }
 
+
+  public postTypeId: number;
+
   constructor(private newsService: NewsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(queryParams => {
+      this.postTypeId = +queryParams['id'];
+    });
   }
 
   navigateToQuestion(event: any): void {
