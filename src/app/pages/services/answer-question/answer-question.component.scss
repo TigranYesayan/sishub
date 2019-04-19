@@ -1,9 +1,28 @@
 $mainBG: #563d7c;
 $mainFC: #563d7c;
 
-.qa__block {
+.qa-block {
   padding: 35px 20px 20px;
   min-height: 100vh;
+  background-color: #fff;
+  margin-bottom: 50px;
+  .btn {
+    display: block;
+    background-color: #6a6688;
+    width: auto;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 38px;
+    padding: 0 20px;
+    border-radius: 4px;
+    border-color: transparent;
+    &:hover {
+      opacity: 0.8;
+      color: #fff;
+    }
+  }
 }
 .qa__heading {
   position: relative;
@@ -38,7 +57,7 @@ $mainFC: #563d7c;
 }
 
 .qa__descr {
-  background-color: #eee;
+  background-color: #ebeff5;
   padding: 20px;
   margin-top: 10px;
   p {
@@ -56,6 +75,8 @@ $mainFC: #563d7c;
 
 .qa__answer {
   margin-top: 20px;
+  list-style: none;
+  padding-left: 0 !important;
   h2 {
     font-size: 20px;
     font-weight: bold;
