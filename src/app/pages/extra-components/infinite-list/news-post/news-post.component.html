@@ -1,5 +1,20 @@
-<article>
-  <h2>{{post.title}}</h2>
-  <p>{{post.text}}</p>
-  <a [attr.href]="post.link">Read full article</a>
+<article class="qa__answer">
+    <div class="answer-wrapper">
+      <h2><a [attr.href]="post.link">{{post.title}}</a></h2>
+      <div class="whowhen">
+        <time datetime="2015-03-30 16:59">5 hours ago </time>
+
+        <a href="#">Jessica M.</a>
+      </div>
+      <p>{{post.text}}</p>
+      <div class="badges">
+        <span class="badge badge-info">Tag 1</span>
+        <span class="badge badge-info">Tag 2</span>
+        <span class="badge badge-info">Tag 3</span>
+      </div>
+      <div class="voteCloud">
+        14
+        <span class="tail"></span>
+      </div>
+    </div>
 </article>

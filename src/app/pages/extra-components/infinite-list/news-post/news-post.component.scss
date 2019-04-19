@@ -1,0 +1,102 @@
+$mainBG: #563d7c;
+$mainFC: #563d7c;
+
+.qa__answer {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0 !important;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+    a {
+      color: $mainFC;
+    }
+  }
+  .whowhen {
+    font-size: 12px;
+    color: #999;
+    a {
+      color: $mainFC;
+    }
+  }
+  li {
+    border-top: 1px dotted #999;
+    padding: 20px 15px 16px;
+  }
+}
+
+.addComment {
+  font-size: 13px;
+  .btn {
+    margin-top: 10px;
+    display: inline;
+  }
+  .qa__textbox {
+    font-size: 16px;
+    height: 100px;
+  }
+  .toggle-button {
+    color: $mainFC;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.answer-wrapper {
+  padding-left: 60px;
+  position: relative;
+  p {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+}
+
+.voteCloud {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #E8BCE1;
+  font-size: 20px;
+  color: #A34A84;
+  border-radius: 4px;
+  .voteLink {
+    position: absolute;
+    bottom: -30px;
+    left: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    &.voted {
+      color: #000 !important;
+      cursor: auto;
+      left: 9px;
+    }
+    &:hover {
+      color: $mainFC;
+    }
+  }
+  .tail {
+    border-left: 11px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 4px solid #E8BCE1;
+    transform: rotate(27deg);
+    position: absolute;
+    top: auto;
+    right: 1px;
+    bottom: -4px;
+    left: auto;
+  }
+}
+
+.badges {
+  .badge {
+    padding: 6px 7px 5px;
+    & + .badge {
+      margin-left: 10px;
+    }
+  }
+}

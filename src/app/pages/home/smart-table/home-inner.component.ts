@@ -7,6 +7,7 @@ import {HomeService} from "../services/home.service";
 
 @Component({
   selector: 'ngx-home-inner',
+  styleUrls: ['home-inner.component.scss'],
   templateUrl: './home-inner.component.html',
   styles: [`
     nb-card {
