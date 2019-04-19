@@ -17,6 +17,9 @@ const routes: Routes = [{
     component: DashboardComponent,
   },
     {
+      path: 'home',
+      loadChildren: './home/home.module#HomeModule',
+    }, {
       path: 'services',
       loadChildren: './services/services.module#ServicesModule',
     }, {
