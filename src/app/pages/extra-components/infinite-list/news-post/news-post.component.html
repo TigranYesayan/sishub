@@ -6,19 +6,19 @@
 
         <a href="#">Jessica M.</a>
       </div>
-      <p>{{post.description}}</p>
+      <p>{{post.body}}</p>
       <div class="badges">
         <span class="badge badge-info">Tag 1</span>
         <span class="badge badge-info">Tag 2</span>
         <span class="badge badge-info">Tag 3</span>
       </div>
       <div class="voteCloud">
-        14
+        {{post.answers ? post.answers : 0}}
         <span class="subText">answers</span>
         <span class="tail"></span>
       </div>
       <div class="voteCloud answers">
-        7
+        {{post.score}}
         <span class="subText">votes</span>
       </div>
     </div>

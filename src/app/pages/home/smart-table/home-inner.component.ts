@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
@@ -15,7 +15,7 @@ import {HomeService} from "../services/home.service";
     }
   `],
 })
-export class HomeInnerComponent {
+export class HomeInnerComponent implements OnInit{
 
   settings = {
     add: {
@@ -76,8 +76,9 @@ export class HomeInnerComponent {
   }
 
   onKeydown(event) {
-    if (event.key === "Enter") {
-      alert(event);
+    if (event.key === "Enter" && event.currentTarget.value) {
+      debugger
+      this.homeService.loadByQuery(event.currentTarget.value);
     }
   }
 
@@ -96,17 +97,18 @@ export class HomeInnerComponent {
   pageSize = 10;
 
 
-  loadNext(cardData) {
-    if (cardData.loading) { return; }
-
-    cardData.loading = true;
-    cardData.placeholders = new Array(this.pageSize);
-    this.homeService.load(cardData.pageToLoadNext, this.pageSize)
+  loadData() {
+    this.homeService.load()
       .subscribe(nextNews => {
-        cardData.placeholders = [];
-        cardData.news.push(...nextNews);
-        cardData.loading = false;
-        cardData.pageToLoadNext++;
+        debugger
+        this.firstCard.placeholders = [];
+        this.firstCard.news.push(...nextNews);
+        this.firstCard.loading = false;
+        this.firstCard.pageToLoadNext++;
       });
+  }
+
+  ngOnInit(): void {
+    this.loadData();
   }
 }
