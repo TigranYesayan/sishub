@@ -19,4 +19,4 @@ import {ThemeModule} from "../../../../@theme/theme.module";
     HomeService
   ]
 })
-export class HomeModule { }
+export class NewsPostPlaceholderModule { }
