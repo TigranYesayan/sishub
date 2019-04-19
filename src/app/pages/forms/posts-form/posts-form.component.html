@@ -1,0 +1,66 @@
+<ng-container *ngIf="isReady">
+  <div class="content hasBg qa-block">
+    <div class="qa__heading hasVoteCloud">
+      <h3>{{post.title}}</h3>
+      <div class="whowhen">
+        <a class="name" href="#">{{post.ownerUserId}}</a>
+        asks
+        <time datetime="2014-12-18 16:59">on {{post.creationDate}}</time>
+      </div>
+      <div class="voteCloud">
+        {{post.score}}
+        <div class="voteLink">
+          <i (click)="vote(post)" class="far fa-thumbs-up"></i>
+          vote
+        </div>
+      </div>
+    </div>
+    <div class="qa__descr">
+      <p>{{post.body}}</p>
+      <form class="clearfix">
+        <textarea class="qa__textbox form-control" placeholder="Write your answer, or answer later"></textarea>
+        <button class="btn">Respond To Question</button>
+      </form>
+    </div>
+    <div class="qa__heading">
+      <h2>{{post.answers.length}} Answers</h2>
+    </div>
+    <ul class="qa__answer">
+      <li *ngFor="let answer of post.answers">
+        <div class="answer-wrapper">
+          <h2><a href="#">{{answer.ownerId}}</a></h2>
+          <div class="whowhen">
+            answered
+            <time datetime="2015-03-30 16:59">{{answer.creationDate}}</time>
+          </div>
+          <p>{{answer.body}}</p>
+          <div class="voteCloud">
+            {{answer.score}}
+            <div class="voteLink">
+              <i (click)="vote(answer)" class="far fa-thumbs-up"></i>
+              vote
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li *ngFor="let comment of answer.comments">
+            <div class="answer-wrapper">
+              <h2><a href="#">{{comment.userId}}</a></h2>
+              <div class="whowhen">
+                by
+                <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>
+              </div>
+              <p>{{comment.text}}</p>
+            </div>
+          </li>
+        </ul>
+        <div class="addComment">
+        <textarea #comment  class="qa__textbox form-control"
+                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>
+          <button (click)="addComment(comment, answer)" class="btn">Add Comment</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
