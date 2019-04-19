@@ -1,5 +1,5 @@
 import {NgModule} from "@angular/core";
-import {NewsPostPlaceholderComponent} from "./news-post-placeholder.component";
+import {NewsPostPlaceholderComponent} from "../news-post-placeholder/news-post-placeholder.component";
 
 
 @NgModule({
