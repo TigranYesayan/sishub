@@ -1,0 +1,129 @@
+$mainBG: #563d7c;
+$mainFC: #563d7c;
+
+.qa__block {
+  padding: 35px 20px 20px;
+  min-height: 100vh;
+}
+.qa__heading {
+  position: relative;
+  &.hasVoteCloud {
+    padding-left: 60px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h2 {
+    margin-top: 30px;
+  }
+  .whowhen {
+    font-size: 16px;
+    .name {
+      color: $mainFC;
+      font-weight: bold;
+    }
+  }
+  .qa__hint {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 20px;
+    background-color: $mainBG;
+    color: #fff;
+    min-width: 150px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 4px;
+  }
+}
+
+.qa__descr {
+  background-color: #eee;
+  padding: 20px;
+  margin-top: 10px;
+  p {
+    font-size: 16px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+  .qa__textbox {
+    font-size: 16px;
+    height: 200px;
+  }
+}
+
+
+.qa__answer {
+  margin-top: 20px;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+    a {
+      color: $mainFC;
+    }
+  }
+  .whowhen {
+    font-size: 12px;
+    color: #999;
+  }
+  li {
+    border-top: 1px dotted #999;
+    padding: 20px 15px 16px;
+  }
+}
+
+.addComment {
+  font-size: 13px;
+  .btn {
+    margin-top: 10px;
+    display: inline;
+  }
+  .qa__textbox {
+    font-size: 16px;
+    height: 100px;
+  }
+  .toggle-button {
+    color: $mainFC;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.answer-wrapper {
+  padding-left: 60px;
+  position: relative;
+  p {
+    font-size: 13px;
+  }
+}
+
+.voteCloud {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 50px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #E8BCE1;
+  font-size: 20px;
+  color: #A34A84;
+  border-radius: 4px;
+  .voteLink {
+    position: absolute;
+    bottom: -30px;
+    left: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    &.voted {
+      color: #000 !important;
+      cursor: auto;
+      left: 9px;
+    }
+    &:hover {
+      color: $mainFC;
+    }
+  }
+}
