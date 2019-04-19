@@ -69,6 +69,8 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
+import {PostPopupComponent} from "../pages/post-popup/post-popup.component";
+import {PostsService} from "../pages/forms/services/posts.service";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -123,10 +125,12 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
   ToggleSettingsButtonComponent,
+  PostPopupComponent
 ];
 
 const ENTRY_COMPONENTS = [
   ThemeSwitcherListComponent,
+  PostPopupComponent
 ];
 
 const PIPES = [
@@ -139,6 +143,7 @@ const PIPES = [
 ];
 
 const NB_THEME_PROVIDERS = [
+  PostsService,
   ...NbThemeModule.forRoot(
     {
       name: 'default',

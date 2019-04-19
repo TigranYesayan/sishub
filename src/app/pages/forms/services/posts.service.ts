@@ -1,8 +1,16 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {delay, map} from "rxjs/operators";
 import {of} from "rxjs";
+import {Post} from "../../post-popup/post.model";
+
+const postUrl = "/posts";
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
 
 @Injectable()
 export class PostsService {
@@ -10,7 +18,17 @@ export class PostsService {
 
   }
 
+  add(post: Post): Observable<any>{
+    return this.http.post(postUrl, post, httpOptions)
+  }
 
+  edit(post: Post): Observable<any>{
+    return this.http.put(postUrl + "/" + post.id, post, httpOptions)
+  }
+
+  delete(id: number): Observable<any>{
+    return this.http.delete(postUrl + "/" + id)
+  }
 
   loadPostById(postId: number) : Observable<any> {
     return of(JSON.parse(`{

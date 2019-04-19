@@ -1,0 +1,22 @@
+<nb-card>
+  <nb-card-header>Ask a Quaestion</nb-card-header>
+  <nb-card-body>
+    <div>
+      <label for="titleId">Title</label>
+      <input placeholder="Title" type="text" [(ngModel)]="post.title" id="titleId">
+    </div>
+    <div>
+      <label for="bodyId">Description</label>
+      <textarea placeholder="Description" [(ngModel)]="post.body" id="bodyId"></textarea>
+    </div>
+
+    <div>
+      <label for="tagId">Components</label>
+      <textarea placeholder="Component" [(ngModel)]="post.tags" id="tagId"></textarea>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danget" (click)="close()">Cancel</button>
+    <button nbButton status="success" (click)="add()">Add</button>
+  </nb-card-footer>
+</nb-card>
