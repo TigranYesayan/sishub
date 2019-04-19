@@ -13,6 +13,4 @@ public class VoteDto {
     public LocalDate creationDate;
     public Integer userId;
     public Integer postId;
-    public Integer commentId;
-
 }

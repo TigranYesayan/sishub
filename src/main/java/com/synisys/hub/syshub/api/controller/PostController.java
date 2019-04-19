@@ -24,8 +24,8 @@ public interface PostController {
 
     List<PostDto> getByFilter(FilterDto filter);
 
-    PostDto vote(VoteDto vote);
+    Integer vote(VoteDto vote);
 
-    PostDto accept(Integer postId);
+    boolean accept(Integer postId);
 
 }

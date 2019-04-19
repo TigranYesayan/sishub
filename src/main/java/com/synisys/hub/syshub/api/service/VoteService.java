@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface VoteService {
 
-    VoteDto create(CommentDto comment);
+    Integer create(VoteDto vote);
 
     List<VoteDto> loadPostVotes(Integer postId);
 

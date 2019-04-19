@@ -7,58 +7,64 @@ import com.synisys.hub.syshub.api.model.VoteDto;
 import com.synisys.hub.syshub.api.service.PostService;
 import com.synisys.hub.syshub.api.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by erikk on 19-Apr-19.
  */
+@Service
 public class PostServiceImpl implements PostService {
 
-    @Autowired
-    private PostDao postDao;
+    private final PostDao postDao;
+
+    private final VoteService voteService;
 
     @Autowired
-    private VoteService voteService;
+    public PostServiceImpl(PostDao postDao, VoteService voteService) {
+        this.postDao = postDao;
+        this.voteService = voteService;
+    }
 
     @Override
     public PostDto create(PostDto post) {
-        return null;
+        return postDao.create(post);
     }
 
     @Override
     public PostDto update(PostDto post) {
-        return null;
+        return postDao.update(post);
     }
 
     @Override
-    public PostDto delete(Integer postId) {
-        return null;
+    public PostDto delete(Integer id) {
+        return postDao.delete(id);
     }
 
     @Override
     public PostDto loadById(Integer id) {
-        return null;
+        return postDao.loadById(id);
     }
 
     @Override
     public List<PostDto> loadAll() {
-        return null;
+        return postDao.loadAll();
     }
 
     @Override
     public List<PostDto> loadByFilter(FilterDto filter) {
-        return null;
+        return postDao.loadByFilter(filter);
     }
 
     @Override
-    public PostDto vote(VoteDto vote) {
-        return null;
+    public Integer vote(VoteDto vote) {
+        return voteService.create(vote);
     }
 
     @Override
-    public PostDto accept(Integer postId) {
-        return null;
+    public boolean accept(Integer id) {
+        return postDao.accept(id);
     }
 
 }
