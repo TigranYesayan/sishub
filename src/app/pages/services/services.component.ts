@@ -11,12 +11,16 @@ import { Component } from '@angular/core';
 export class ServicesComponent {
   tabs: any[] = [
     {
-      title: 'Documentation',
-      route: '/pages/services/documentation',
-    },
-    {
       title: 'Answer/Question',
       route: '/pages/services/answer-question',
+    },
+    {
+      title: 'Improvement',
+      route: '/pages/services/improvement',
+    },
+    {
+      title: 'Documentation',
+      route: '/pages/services/documentation',
     },
   ];
 }

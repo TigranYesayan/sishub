@@ -5,6 +5,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import {routedComponents, ServicesRoutingModule} from "./services-routing.module";
 import { DocumentationComponent } from './documentation/documentation.component';
 import { AnswerQuestionComponent } from './answer-question/answer-question.component';
+import {ImprovementComponent} from "./improvement/improvment.component";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { AnswerQuestionComponent } from './answer-question/answer-question.compo
   declarations: [
     ...routedComponents,
     DocumentationComponent,
+    ImprovementComponent,
     AnswerQuestionComponent,
   ],
 })
