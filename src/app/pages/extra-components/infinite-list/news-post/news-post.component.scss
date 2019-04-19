@@ -6,7 +6,7 @@ $mainFC: #563d7c;
   list-style: none;
   padding-left: 0 !important;
   h2 {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 0;
     a {
@@ -14,7 +14,7 @@ $mainFC: #563d7c;
     }
   }
   .whowhen {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
     a {
       color: $mainFC;
@@ -47,23 +47,32 @@ $mainFC: #563d7c;
   padding-left: 60px;
   position: relative;
   p {
-    font-size: 13px;
-    margin-bottom: 0;
+    font-size: 16px;
+    margin-bottom: 3px;
   }
 }
 
 .voteCloud {
   position: absolute;
-  top: -18px;
+  top: -10px;
   left: 0;
   width: 50px;
   height: 40px;
-  line-height: 40px;
+  line-height: 30px;
   text-align: center;
   background-color: #E8BCE1;
   font-size: 20px;
   color: #A34A84;
   border-radius: 4px;
+  &.answers {
+    top: 49px;
+  }
+  .subText {
+    font-size: 11px;
+    display: block;
+    position: relative;
+    top: -16px;
+  }
   .voteLink {
     position: absolute;
     bottom: -30px;
