@@ -42,18 +42,59 @@
             </div>
           </div>
         </div>
-        <ul>
-          <li *ngFor="let comment of answer.comments">
-            <div class="answer-wrapper">
-              <h2><a href="#">{{comment.userId}}</a></h2>
-              <div class="whowhen">
-                by
-                <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>
-              </div>
-              <p>{{comment.text}}</p>
+        <ul class="responseList">
+          <li>
+            <div class="whowhen">
+              <a href="#">Stella N.</a> commented
+              <time datetime="2015-03-30 16:59">5 hours ago</time>
             </div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li>
+            <div class="whowhen">
+              <a href="#">Stella N.</a> commented
+              <time datetime="2015-03-30 16:59">5 hours ago</time>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li>
+            <div class="whowhen">
+              <a href="#">Stella N.</a> commented
+              <time datetime="2015-03-30 16:59">5 hours ago</time>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li>
+            <div class="whowhen">
+              <a href="#">Stella N.</a> commented
+              <time datetime="2015-03-30 16:59">5 hours ago</time>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li>
+            <div class="whowhen">
+              <a href="#">Stella N.</a> commented
+              <time datetime="2015-03-30 16:59">5 hours ago</time>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          </li>
+          <li class="viewMore">
+            <span>View All 7 Comments</span>
           </li>
         </ul>
+<!--        <ul>-->
+<!--          <li *ngFor="let comment of answer.comments">-->
+<!--            <div class="answer-wrapper">-->
+<!--              <h2><a href="#">{{comment.userId}}</a></h2>-->
+<!--              <div class="whowhen">-->
+<!--                by-->
+<!--                <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>-->
+<!--              </div>-->
+<!--              <p>{{comment.text}}</p>-->
+<!--            </div>-->
+<!--          </li>-->
+<!--        </ul>-->
+
         <div class="addComment">
         <textarea #comment  class="qa__textbox form-control"
                   placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>
@@ -63,4 +104,3 @@
     </ul>
   </div>
 </ng-container>
-

@@ -62,13 +62,14 @@ $mainFC: #563d7c;
   margin-top: 10px;
   p {
     font-size: 16px;
+    color: #333;
   }
   .btn {
     margin-top: 10px;
   }
   .qa__textbox {
     font-size: 16px;
-    height: 200px;
+    height: 100px;
   }
 }
 
@@ -89,13 +90,14 @@ $mainFC: #563d7c;
     font-size: 12px;
     color: #999;
   }
-  li {
+  & > li {
     border-top: 1px dotted #999;
     padding: 20px 15px 16px;
   }
 }
 
 .addComment {
+  margin-top: 10px;
   font-size: 13px;
   .btn {
     margin-top: 10px;
@@ -109,6 +111,11 @@ $mainFC: #563d7c;
     color: $mainFC;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 0;
+    margin-top: 10px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -117,6 +124,7 @@ $mainFC: #563d7c;
   position: relative;
   p {
     font-size: 13px;
+    color: #333;
   }
 }
 
@@ -145,6 +153,42 @@ $mainFC: #563d7c;
     }
     &:hover {
       color: $mainFC;
+    }
+  }
+}
+
+.responseList {
+  list-style: none;
+  padding-left: 0 !important;
+  li {
+    background-color: #ebeff5;
+    padding: 15px;
+    margin-bottom: 2px;
+    &.viewMore {
+      span {
+        color: $mainFC;
+        cursor: pointer;
+        font-weight: bold;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    p {
+      margin-bottom: 0;
+      color: #333;
+      display: inline;
+    }
+    a {
+      color: $mainFC;
+      font-weight: bold;
+    }
+    .whowhen {
+      display: inline;
+      color: #666;
+      &:after {
+        content: " - ";
+      }
     }
   }
 }
