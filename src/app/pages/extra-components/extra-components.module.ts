@@ -87,5 +87,6 @@ const MODULES = [
   providers: [
     ...SERVICES,
   ],
+  exports: [NewsPostComponent,NewsPostPlaceholderComponent]
 })
 export class ExtraComponentsModule { }

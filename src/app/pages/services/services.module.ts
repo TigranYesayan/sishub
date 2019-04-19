@@ -10,20 +10,20 @@ import {NewsPostComponent} from "../extra-components/infinite-list/news-post/new
 import {NewsPostPlaceholderComponent} from "../extra-components/infinite-list/news-post-placeholder/news-post-placeholder.component";
 import {HomeService} from "../home/services/home.service";
 import {NewsService} from "../extra-components/services/news.service";
+import {ExtraComponentsModule} from "../extra-components/extra-components.module";
 
 @NgModule({
   imports: [
     ThemeModule,
     ServicesRoutingModule,
     Ng2SmartTableModule,
+    ExtraComponentsModule
   ],
   declarations: [
     ...routedComponents,
     DocumentationComponent,
     ImprovementComponent,
-    AnswerQuestionComponent,
-    NewsPostComponent,
-    NewsPostPlaceholderComponent
+    AnswerQuestionComponent
   ],
   providers: [
     NewsService
