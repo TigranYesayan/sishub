@@ -28,7 +28,7 @@
     <ul class="qa__answer">
       <li *ngFor="let answer of post.answers">
         <div class="answer-wrapper">
-          <h2><a href="#">{{answer.ownerId}}</a></h2>
+          <h2><a href="#">Armen N.</a></h2>
           <div class="whowhen">
             answered
             <time datetime="2015-03-30 16:59">{{answer.creationDate}}</time>
@@ -43,62 +43,20 @@
           </div>
         </div>
         <ul class="responseList">
-          <li>
+          <li *ngFor="let comment of answer.comments">
             <div class="whowhen">
               <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">5 hours ago</time>
+              <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>
             </div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <p>{{comment.text}}</p>
           </li>
-          <li>
-            <div class="whowhen">
-              <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">5 hours ago</time>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          </li>
-          <li>
-            <div class="whowhen">
-              <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">5 hours ago</time>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          </li>
-          <li>
-            <div class="whowhen">
-              <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">5 hours ago</time>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          </li>
-          <li>
-            <div class="whowhen">
-              <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">5 hours ago</time>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          </li>
-          <li class="viewMore">
-            <span>View All 7 Comments</span>
-          </li>
+          <li class="viewMore"><span>View All 7 Comments</span></li>
         </ul>
-<!--        <ul>-->
-<!--          <li *ngFor="let comment of answer.comments">-->
-<!--            <div class="answer-wrapper">-->
-<!--              <h2><a href="#">{{comment.userId}}</a></h2>-->
-<!--              <div class="whowhen">-->
-<!--                by-->
-<!--                <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>-->
-<!--              </div>-->
-<!--              <p>{{comment.text}}</p>-->
-<!--            </div>-->
-<!--          </li>-->
-<!--        </ul>-->
-
         <div class="addComment">
-        <textarea #comment  class="qa__textbox form-control"
-                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>
-          <button (click)="addComment(comment, answer)" class="btn">Add Comment</button>
+          <div class="toggle-button">Add a comment</div>
+<!--          <textarea #comment  class="qa__textbox form-control"-->
+<!--                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>-->
+<!--          <button (click)="addComment(comment, answer)" class="btn">Add Comment</button>-->
         </div>
       </li>
     </ul>
