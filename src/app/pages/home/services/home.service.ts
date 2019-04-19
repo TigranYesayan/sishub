@@ -7,28 +7,34 @@ const TOTAL_PAGES = 7;
 
 export class Post {
   id: number;
+  accepted: boolean;
   closedDate: string;
   creationDate: string;
+  lastActivityDate: string;
+  lastEditDate: string;
+  lastEditorUserId: number;
+  postTypeId: string;
+  parentId: number;
   ownerUserId: number;
   score: number;
   tags: string;
   answers: number;
   title: string;
-  description: string;
+  body: string;
 }
 
 @Injectable()
 export class HomeService {
   constructor(private http: HttpClient) {}
 
-  load(page: number, pageSize: number): Observable<Post[]> {
-    const startIndex = ((page - 1) % TOTAL_PAGES) * pageSize;
-
+  load(): Observable<Post[]> {
     return this.http
-      .get<Post[]>('assets/data/news.json')
-      .pipe(
-        map(news => news.splice(startIndex, pageSize)),
-        delay(1500),
-      );
+      .get<Post[]>('http://SIS2N046:8080/posts');
   }
+
+  loadByQuery(message: string): Observable<Post[]> {
+    return this.http.get<Post[]>('');
+  }
+
+
 }
