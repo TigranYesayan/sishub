@@ -75,6 +75,12 @@ export class HomeInnerComponent {
     }
   }
 
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      alert(event);
+    }
+  }
+
   firstCard = {
     news: [],
     placeholders: [],

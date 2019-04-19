@@ -63,7 +63,7 @@ const routes: Routes = [{
       loadChildren: './miscellaneous/miscellaneous.module#MiscellaneousModule',
     }, {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'home',
       pathMatch: 'full',
     }, {
       path: '**',

@@ -1,7 +1,7 @@
 <nb-card>
   <nb-card-body>
     <div class="search-wrapper">
-      <input type="text" placeholder="Search your keywords..." class="form-control"/>
+      <input type="text" placeholder="Search your keywords..." class="form-control" (keydown)="onKeydown($event)"/>
       <i class="fas fa-search"></i>
     </div>
     <div class="col-md-12 col-lg-12 col-xxxl-12">

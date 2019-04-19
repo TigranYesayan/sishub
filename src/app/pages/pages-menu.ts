@@ -7,12 +7,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/home',
   },{
     title: 'Services',
-    icon: 'nb-home',
+    icon: 'fab fa-servicestack',
     link: '/pages/services',
   },
   {
     title: 'Projects',
-    icon: 'nb-home',
+    icon: 'fa fa-bars',
     link: '/pages/projects',
   },
   {
