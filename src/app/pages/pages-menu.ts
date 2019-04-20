@@ -8,7 +8,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },{
     title: 'Services',
     icon: 'fab fa-servicestack',
-    link: '/pages/services',
+    children: [
+      {
+        title: 'Kb Service',
+        icon: 'fab fa-servicestack',
+        link: '/pages/services',
+      }
+    ]
   },
   {
     title: 'Projects',
@@ -21,7 +27,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/production',
   },
   {
-    title: 'Upgrades',
+    title: 'Releases',
     icon: 'nb-home',
     link: '/pages/upgrades',
   },
@@ -250,7 +256,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Smart Table',
-        link: '/pages/tables/smart-table',
+        link: '/pages/tables/inner',
       },
     ],
   },

@@ -36,5 +36,21 @@ export class HomeService {
     return this.http.get<Post[]>('');
   }
 
+  loadByFilter(title: string = null, tag: string = null) {
+    const filterDto = {
+      title: title,
+      tag: tag
+    };
+
+    return this.http.post(`${this.backendUrl}/posts/filtered`, {filterDto: filterDto}).pipe(map((res) => {
+      return res as Post[];
+    }));
+  }
+
+
+  get backendUrl(): string {
+    return 'http://SIS2N046:8080';
+  }
+
 
 }

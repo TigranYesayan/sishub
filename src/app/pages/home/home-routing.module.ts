@@ -8,7 +8,7 @@ const routes: Routes = [{
   path: '',
   component: HomeInnerComponent,
   children: [{
-    path: 'smart-table',
+    path: 'inner',
     component: HomeComponent,
   }],
 }];
