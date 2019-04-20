@@ -50,13 +50,14 @@
             </div>
             <p>{{comment.text}}</p>
           </li>
-          <li class="viewMore"><span>View All 7 Comments</span></li>
+          <!--<li class="viewMore"><span>View All 7 Comments</span></li>-->
         </ul>
         <div class="addComment">
-          <div class="toggle-button">Add a comment</div>
-<!--          <textarea #comment  class="qa__textbox form-control"-->
-<!--                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>-->
-<!--          <button (click)="addComment(comment, answer)" class="btn">Add Comment</button>-->
+          <div *ngIf="!answer.showAddComment" (click)="answer.showAddComment = true" class="toggle-button">Add a comment</div>
+          <textarea [hidden]="!answer.showAddComment" #comment  class="qa__textbox form-control"
+                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>
+          <button *ngIf="answer.showAddComment" (click)="addComment(comment, answer)" class="btn">Add Comment</button>
+          <button *ngIf="answer.showAddComment" (click)="answer.showAddComment = false" class="btn">Cancel</button>
         </div>
       </li>
     </ul>

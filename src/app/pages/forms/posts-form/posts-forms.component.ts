@@ -18,7 +18,7 @@ export class PostsFormsComponent implements OnInit{
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((queryParams: Parameters<any>) => {
-      this.postService.loadPostById(queryParams['id']).subscribe((post: any) => {
+      this.postService.loadPostById(+queryParams['id']).subscribe((post: any) => {
         this.post = post;
         this.isReady = true;
       });
@@ -31,8 +31,12 @@ export class PostsFormsComponent implements OnInit{
   }
 
   addComment(comment: any, answer: any) {
-    answer.comments.push({text: comment.value});
-    this.postService.addComment(comment.value, answer.id);
+    const commentValue = comment.value && comment.value.trim();
+    if(commentValue){
+      answer.comments.push({text: commentValue});
+      this.postService.addComment(commentValue, answer.id);
+    }
     comment.value = '';
+    answer.showAddComment = false;
   }
 }
