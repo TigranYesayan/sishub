@@ -18,6 +18,14 @@ import {HomeService} from "../../home/services/home.service";
 })
 export class UpgradesInnerComponent {
 
+  releases : string[] = [
+    'Fengari',
+    'Falakro',
+    'Oche',
+    'Dikti',
+    'Verno'
+  ];
+
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -104,7 +112,7 @@ export class UpgradesInnerComponent {
 
     cardData.loading = true;
     cardData.placeholders = new Array(this.pageSize);
-    this.homeService.loadMock()
+    this.homeService.load()
       .subscribe(nextNews => {
         cardData.placeholders = [];
         cardData.news.push(...nextNews);
