@@ -77,8 +77,12 @@ export class HomeInnerComponent implements OnInit{
   }
 
   onKeydown(event) {
-    if (event.key === "Enter" && event.currentTarget.value) {
-      this.homeService.loadByQuery(event.currentTarget.value);
+    if (event.key === "Enter") {
+      debugger
+      this.homeService.loadByQuery(event.currentTarget.value).subscribe(data=> {
+        this.firstCard.news = data;
+        this.firstCard.loading = false;
+      });
     }
   }
 

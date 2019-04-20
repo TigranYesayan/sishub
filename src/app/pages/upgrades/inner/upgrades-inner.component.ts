@@ -104,7 +104,7 @@ export class UpgradesInnerComponent {
 
     cardData.loading = true;
     cardData.placeholders = new Array(this.pageSize);
-    this.homeService.load(cardData.pageToLoadNext, this.pageSize)
+    this.homeService.load()
       .subscribe(nextNews => {
         cardData.placeholders = [];
         cardData.news.push(...nextNews);

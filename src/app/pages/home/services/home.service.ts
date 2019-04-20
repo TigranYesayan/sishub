@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {delay, map} from "rxjs/operators";
 
@@ -19,9 +19,15 @@ export class Post {
   score: number;
   tags: string;
   answers: number;
+  answerCount: number;
   title: string;
   body: string;
 }
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable()
 export class HomeService {
@@ -33,7 +39,7 @@ export class HomeService {
   }
 
   loadByQuery(message: string): Observable<Post[]> {
-    return this.http.get<Post[]>('');
+    return this.http.post<Post[]>('http://SIS2N046:8080/posts/filtered', {text: message}, httpOptions);
   }
 
   loadByFilter(title: string = null, tag: string = null) {
