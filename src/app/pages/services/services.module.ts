@@ -26,7 +26,8 @@ import {ExtraComponentsModule} from "../extra-components/extra-components.module
     AnswerQuestionComponent
   ],
   providers: [
-    NewsService
+    NewsService,
+    HomeService
   ]
 })
 export class ServicesModule { }

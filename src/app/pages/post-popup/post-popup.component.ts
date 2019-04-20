@@ -34,6 +34,7 @@ export class PostPopupComponent implements OnInit {
   add() {
     this.postService.add(this.post).subscribe(
       () => {
+        this.close();
       },
       (err: any) => {
         console.error(err)

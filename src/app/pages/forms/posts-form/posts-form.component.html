@@ -8,7 +8,7 @@
         <time datetime="2014-12-18 16:59">on {{post.creationDate}}</time>
       </div>
       <div class="voteCloud">
-        {{post.score}}
+        {{post.score ? post.score : 0}}
         <div class="voteLink">
           <i (click)="vote(post)" class="far fa-thumbs-up"></i>
           vote
@@ -18,8 +18,14 @@
     <div class="qa__descr">
       <p>{{post.body}}</p>
       <form class="clearfix">
-        <textarea class="qa__textbox form-control" placeholder="Write your answer, or answer later"></textarea>
-        <button class="btn">Respond To Question</button>
+
+        <!--<textarea class="qa__textbox form-control" placeholder="Write your answer, or answer later"></textarea>-->
+        <!--<button class="btn">Respond To Question</button>-->
+        <div *ngIf="!post.showAddAnswer" (click)="post.showAddAnswer = true" class="toggle-button">Respond to Question</div>
+        <textarea [hidden]="!post.showAddAnswer" #answer  class="qa__textbox form-control"
+                  placeholder="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></textarea>
+        <button *ngIf="post.showAddAnswer" (click)="addAnswer(answer)" class="btn">Add Answer</button>
+        <button *ngIf="post.showAddAnswer" (click)="post.showAddAnswer = false" class="btn">Cancel</button>
       </form>
     </div>
     <div class="qa__heading">
@@ -31,7 +37,7 @@
           <h2><a href="#">Armen N.</a></h2>
           <div class="whowhen">
             answered
-            <time datetime="2015-03-30 16:59">{{answer.creationDate}}</time>
+            <time datetime="2015-03-30 16:59">{{answer.creationDate.month}} {{answer.creationDate.dayOfMonth}} {{answer.creationDate.year}}</time>
           </div>
           <p>{{answer.body}}</p>
           <div class="voteCloud">
@@ -46,7 +52,7 @@
           <li *ngFor="let comment of answer.comments">
             <div class="whowhen">
               <a href="#">Stella N.</a> commented
-              <time datetime="2015-03-30 16:59">{{comment.creationDate}}</time>
+              <time datetime="2015-03-30 16:59">{{comment ? comment.creationDate.year + " "+comment.creationDate.month + " "+comment.creationDate.dayOfMonth : ""}}</time>
             </div>
             <p>{{comment.text}}</p>
           </li>

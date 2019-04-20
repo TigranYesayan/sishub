@@ -151,23 +151,16 @@
 <!--</ul>-->
 <!--</div>-->
 <nb-card>
-  <nb-card-header>
-
-  </nb-card-header>
-
   <nb-card-body>
-    <div class="col-md-12 col-lg-12 col-xxxl-12 mt-5">
+    <div class="search-wrapper">
+      <input type="text" placeholder="Search your keywords..." class="form-control" (keydown)="onKeydown($event)"/>
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="col-md-12 col-lg-12 col-xxxl-12">
       <nb-card class="own-scroll">
-        <nb-card-header></nb-card-header>
-        <nb-list
-          nbInfiniteList
-          [threshold]="500"
-          (bottomThreshold)="loadNext(firstCard)">
+        <nb-list>
           <nb-list-item (click)="navigateToQuestion(newsPost)" *ngFor="let newsPost of firstCard.news">
             <ngx-news-post [post]="newsPost"></ngx-news-post>
-          </nb-list-item>
-          <nb-list-item *ngFor="let _ of firstCard.placeholders">
-            <ngx-news-post-placeholder></ngx-news-post-placeholder>
           </nb-list-item>
         </nb-list>
       </nb-card>

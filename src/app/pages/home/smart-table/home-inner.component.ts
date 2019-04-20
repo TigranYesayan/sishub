@@ -3,7 +3,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import {SmartTableData} from '../../../@core/data/smart-table';
 import {NewsService} from "../../extra-components/services/news.service";
-import {HomeService} from "../services/home.service";
+import {HomeService, Post} from "../services/home.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -78,7 +78,6 @@ export class HomeInnerComponent implements OnInit{
 
   onKeydown(event) {
     if (event.key === "Enter") {
-      debugger
       this.homeService.loadByQuery(event.currentTarget.value).subscribe(data=> {
         this.firstCard.news = data;
         this.firstCard.loading = false;
@@ -100,15 +99,18 @@ export class HomeInnerComponent implements OnInit{
   };
   pageSize = 10;
 
-
+  allData: Post[] = [];
   loadData() {
-    this.homeService.load()
-      .subscribe(nextNews => {
-        this.firstCard.placeholders = [];
-        this.firstCard.news.push(...nextNews);
-        this.firstCard.loading = false;
-        this.firstCard.pageToLoadNext++;
-      });
+    if(!this.firstCard.news || this.firstCard.news.length == 0){
+      this.homeService.load()
+        .subscribe(nextNews => {
+          this.firstCard.placeholders = [];
+          this.firstCard.news.push(...nextNews);
+          this.allData.push(...nextNews);
+          this.firstCard.loading = false;
+          this.firstCard.pageToLoadNext++;
+        });
+    }
   }
 
   ngOnInit(): void {

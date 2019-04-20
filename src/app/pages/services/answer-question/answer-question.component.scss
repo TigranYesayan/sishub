@@ -154,3 +154,20 @@ $mainFC: #563d7c;
     }
   }
 }
+
+.search-wrapper {
+  padding: 0 15px;
+  margin-bottom: 15px;
+  width: 500px;
+  position: relative;
+  .form-control {
+    padding-left: 45px;
+  }
+  .fa-search {
+    position: absolute;
+    left: 30px;
+    top: 13px;
+    font-size: 20px;
+  }
+}
+

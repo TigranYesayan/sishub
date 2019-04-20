@@ -5,12 +5,14 @@ import {delay, map} from "rxjs/operators";
 import {of} from "rxjs";
 import {Post} from "../../post-popup/post.model";
 
-const postUrl = "/posts";
+const postUrl = "http://SIS2N046:8080/posts";
+const commentUrl = "http://SIS2N046:8080/comments";
+const voteUrl = "http://SIS2N046:8080/posts/vote";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
-}
+};
 
 @Injectable()
 export class PostsService {
@@ -19,7 +21,13 @@ export class PostsService {
   }
 
   add(post: Post): Observable<any>{
-    return this.http.post(postUrl, post, httpOptions)
+    if(post.parentId){
+      post.postTypeId = 1;
+    } else {
+      post.postTypeId = 0;
+    }
+    post.ownerUserId = 1;
+    return this.http.post(postUrl, post, httpOptions);
   }
 
   edit(post: Post): Observable<any>{
@@ -31,129 +39,20 @@ export class PostsService {
   }
 
   loadPostById(postId: number) : Observable<any> {
-    return of(JSON.parse(`{
-  "id": 1,
-  "body": "aaa aaa a  a",
-  "closedDate": "2019-05-17",
-  "creationDate": "2019-04-17",
-  "favoriteCount": 3,
-  "ownerUserId": 1,
-  "parentId": 1,
-  "postTypeId": 1,
-  "score": 1,
-  "tags": "de-service",
-  "title": "How do you do?",
-  "answers": [
-    {
-      "id": 2,
-      "body": "aaa aaa a  a",
-      "closedDate": "2019-05-17",
-      "creationDate": "2019-04-17",
-      "favoriteCount": 3,
-      "ownerUserId": 1,
-      "parentId": 1,
-      "postTypeId": 1,
-      "score": 1,
-      "tags": "de-service",
-      "title": "How do you do?",
-	  "accept": true,
-      "comments": [
-        {
-          "id": 1,
-          "creationDate": "2018-10-04",
-          "score": 3,
-          "postId": 2,
-          "text": "uuu n",
-          "userId": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "body": "aaa aaa a  a",
-      "closedDate": "2019-05-17",
-      "creationDate": "2019-04-17",
-      "favoriteCount": 3,
-      "ownerUserId": 1,
-      "parentId": 1,
-      "postTypeId": 1,
-      "score": 1,
-      "tags": "de-service",
-      "title": "How do you do?",
-	  "accept": true,
-      "comments": [
-        {
-          "id": 1,
-          "creationDate": "2018-10-04",
-          "score": 3,
-          "postId": 2,
-          "text": "uuu n",
-          "userId": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "body": "aaa aaa a  a",
-      "closedDate": "2019-05-17",
-      "creationDate": "2019-04-17",
-      "favoriteCount": 3,
-      "ownerUserId": 1,
-      "parentId": 1,
-      "postTypeId": 1,
-      "score": 1,
-      "tags": "de-service",
-      "title": "How do you do?",
-	  "accept": true,
-      "comments": [
-        {
-          "id": 1,
-          "creationDate": "2018-10-04",
-          "score": 3,
-          "postId": 2,
-          "text": "uuu n",
-          "userId": 1
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "body": "aaa aaa a  a",
-      "closedDate": "2019-05-17",
-      "creationDate": "2019-04-17",
-      "favoriteCount": 3,
-      "ownerUserId": 1,
-      "parentId": 1,
-      "postTypeId": 1,
-      "score": 1,
-      "tags": "de-service",
-      "title": "How do you do?",
-	  "accept": true,
-      "comments": [
-        {
-          "id": 1,
-          "creationDate": "2018-10-04",
-          "score": 3,
-          "postId": 2,
-          "text": "uuu n",
-          "userId": 1
-        }
-      ]
-    }
-  ]
-}`));
+    return this.http.get(postUrl + '/' + postId);
   }
 
 
   public vote(postId: number): Observable<any> {
-    return of(null);
+    return this.http.post(voteUrl, {userId: 1,postId: postId });
   }
 
   public addComment(comment: string, postId: number): Observable<any> {
-    return of(null);
-  }
-
-  public addAnswer(answer: any, parentPostId: number): Observable<any> {
-    return of(null);
+    const body = {
+      ownerUserId: 1,
+      text: comment,
+      postId: postId
+    };
+    return this.http.post(`${commentUrl}`, body);
   }
 }
