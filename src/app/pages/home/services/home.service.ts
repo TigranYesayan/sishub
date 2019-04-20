@@ -38,6 +38,11 @@ export class HomeService {
       .get<Post[]>('http://SIS2N046:8080/posts');
   }
 
+  loadMock(): Observable<Post[]> {
+    return this.http
+      .get<Post[]>('assets/data/news.json');
+  }
+
   loadByQuery(message: string): Observable<Post[]> {
     return this.http.post<Post[]>('http://SIS2N046:8080/posts/filtered', {text: message}, httpOptions);
   }

@@ -10,4 +10,5 @@ import { NewsPost } from '../../services/news.service';
 export class NewsPostComponent {
 
   @Input() post: NewsPost;
+
 }
