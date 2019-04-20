@@ -7,15 +7,15 @@ $mainFC: #563d7c;
   background-color: #fff;
   margin-bottom: 50px;
   .btn {
-    display: block;
+    display: inline-block;
     background-color: #6a6688;
     width: auto;
-    height: 40px;
-    font-size: 16px;
+    height: 30px;
+    font-size: 13px;
     color: #fff;
     text-decoration: none;
-    line-height: 38px;
-    padding: 0 20px;
+    line-height: 28px;
+    padding: 0 12px;
     border-radius: 4px;
     border-color: transparent;
     cursor: pointer;
@@ -109,15 +109,16 @@ $mainFC: #563d7c;
     font-size: 16px;
     height: 100px;
   }
-  .toggle-button {
-    color: $mainFC;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 0;
-    margin-top: 10px;
-    &:hover {
-      text-decoration: underline;
-    }
+}
+.toggle-button {
+  display: table;
+  color: $mainFC;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 0;
+  margin-top: 10px;
+  &:hover {
+    text-decoration: underline;
   }
 }
 

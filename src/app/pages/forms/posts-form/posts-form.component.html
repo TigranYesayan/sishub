@@ -41,7 +41,7 @@
           </div>
           <p>{{answer.body}}</p>
           <div class="voteCloud">
-            {{answer.score}}
+            {{answer.score || 0}}
             <div class="voteLink">
               <i (click)="vote(answer)" class="far fa-thumbs-up"></i>
               vote

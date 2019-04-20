@@ -22,9 +22,9 @@ export class PostsService {
 
   add(post: Post): Observable<any>{
     if(post.parentId){
-      post.postTypeId = 1;
+      post.postTypeId = 2;
     } else {
-      post.postTypeId = 0;
+      post.postTypeId = 1;
     }
     post.ownerUserId = 1;
     return this.http.post(postUrl, post, httpOptions);

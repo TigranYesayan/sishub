@@ -10,7 +10,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'fab fa-servicestack',
     children: [
       {
-        title: 'Kb Service',
+        title: 'idm-ng-controls',
         icon: 'fab fa-servicestack',
         link: '/pages/services',
       }
