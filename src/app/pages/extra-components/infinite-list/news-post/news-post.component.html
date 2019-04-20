@@ -4,21 +4,19 @@
       <div class="whowhen">
         <time datetime="2015-03-30 16:59">5 hours ago </time>
 
-        <a href="#">Jessica M.</a>
+        <a href="#">{{post.displayName}}</a>
       </div>
       <p>{{post.body}}</p>
       <div class="badges">
-        <span class="badge badge-info">Tag 1</span>
-        <span class="badge badge-info">Tag 2</span>
-        <span class="badge badge-info">Tag 3</span>
+        <span class="badge badge-info" *ngFor="let tag of post.tags">{{tag}}</span>
       </div>
       <div class="voteCloud">
-        {{post.answers ? post.answers : 0}}
+        {{post.answerCount ? post.answerCount : 0}}
         <span class="subText">answers</span>
         <span class="tail"></span>
       </div>
       <div class="voteCloud answers">
-        {{post.score}}
+        {{post.score ? post.score : 0}}
         <span class="subText">votes</span>
       </div>
     </div>

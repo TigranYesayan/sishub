@@ -15,7 +15,12 @@ const routes: Routes = [{
   }, {
     path: 'answer-question',
     component: AnswerQuestionComponent,
+  }, {
+    path: '',
+    redirectTo: 'answer-question',
+    pathMatch: 'full',
   }],
+
 }];
 
 @NgModule({
